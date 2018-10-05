@@ -4,7 +4,9 @@ import VueRouter from 'vue-router'
 import HelloWorld from './components/HelloWorld'
 import Users from './components/Users'
 import VueResource from 'vue-resource'
+import axios from 'axios'
 
+Vue.prototype.$axios=axios
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 Vue.use(VueResource)

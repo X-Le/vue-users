@@ -50,16 +50,33 @@ export default {
   	}
   },
   created:function(){
-  	this.$http.get("http://jsonplaceholder.typicode.com/users")
-  	
+  	/*this.$http.get("http://jsonplaceholder.typicode.com/users")
+  	.then((data) => {
+  		this.users=data.body
+  	})*/
   	//两种方法
   	/*.then(function(response){
   		console.log(response.data)
   		this.users=response.data
   	})*/
 
-  	.then((data) => {
-  		this.users=data.body
+  	//跨域请求
+
+  	/*fetch("/apis/sell/user/findOne",{
+  		method:"post",
+  		headers:{
+  			"Content-type":"application/json"
+  		},
+  		body:"id="+1
+  	})
+  	.then(result =>{
+  		return result.json()
+  	}).then(data =>{
+  		console.log(data)
+  	})*/
+  	 this.$axios.post("/apis/sell/user/findOne")
+  	.then(data => {
+  		 console.log(data)
   	})
   }
 }
